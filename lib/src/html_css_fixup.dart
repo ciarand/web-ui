@@ -151,7 +151,7 @@ class _ScopedStyleRenamer extends InfoVisitor {
         var refClass = refClasses[i];
         if (classes.contains(refClass)) {
           if (prefix != null) {
-            refClasses[i] = "${prefix}_$refClass";
+            refClasses[i] = '${prefix}_$refClass';
             changed = true;
           }
         }
@@ -180,7 +180,7 @@ class _ScopedStyleRenamer extends InfoVisitor {
     if (prefix != null) {
       var id = node.attributes['id'];
       if (id != null && ids.contains(id)) {
-        var mangledName = "${prefix}_$id";
+        var mangledName = '${prefix}_$id';
         if (_debugCss) {
           print("    id = ${node.attributes['id'].toString()} => $mangledName");
         }

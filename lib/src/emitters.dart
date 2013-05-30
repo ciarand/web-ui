@@ -422,10 +422,21 @@ class StyleSheetEmitter extends CssPrinter {
 
   StyleSheetEmitter(this._prefix);
 
+  bool _emitComponentScope(var node) {
+    if (node is ElementSelector && _prefix == node.name) {
+      emit('[is="$_prefix"]');
+      return false;
+    }
+    emit('[is="$_prefix"] ');
+
+    return true;
+  }
+
   void visitClassSelector(ClassSelector node) {
     if (_prefix == null) {
       super.visitClassSelector(node);
     } else {
+      _emitComponentScope(node);
       emit('.${_prefix}_${node.name}');
     }
   }
@@ -434,8 +445,14 @@ class StyleSheetEmitter extends CssPrinter {
     if (_prefix == null) {
       super.visitIdSelector(node);
     } else {
+      _emitComponentScope(node);
       emit('#${_prefix}_${node.name}');
     }
+  }
+
+  void visitElementSelector(ElementSelector node) {
+    if (_prefix != null && !_emitComponentScope(node)) return;
+    super.visitElementSelector(node);
   }
 }
 
