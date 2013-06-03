@@ -69,7 +69,7 @@ class IdClassVisitor extends Visitor {
   }
 }
 
-/** Build the Dart `_css` list of managled class names. */
+/** Build the Dart map of managled class/id names and component tag name. */
 Map createCssSimpleSelectors(IdClassVisitor visitedCss, ComponentInfo info,
                      {scopedStyles: true}) {
   Map selectors = {};
