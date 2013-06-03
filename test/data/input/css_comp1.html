@@ -43,23 +43,23 @@ TODO(terry): apply-author-styles needs to be handled the default is not to apply
         </div>
       </template>
       <script type="application/dart">
-        import 'dart:async';
-        import 'package:web_ui/web_ui.dart';
+import 'dart:async';
+import 'package:web_ui/web_ui.dart';
 
-        @observable
-        class Comp1 extends WebComponent {
-          String type;
-          bool _flip = false;
-          String get flipping => css[_flip ? '.comp-1-done' : '.comp-1-input'];
-          bool get isFlipper => type == 'flipper';
+@observable
+class Comp1 extends WebComponent {
+  String type;
+  bool _flip = false;
+  String get flipping => css[_flip ? '.comp-1-done' : '.comp-1-input'];
+  bool get isFlipper => type == 'flipper';
 
-          void inserted() {
-            var elem = getShadowRoot('x-comp1').query("${css.selector('#input-1')}");
-            elem.value = "Testing";
-            if (isFlipper) _flip = true;
-            super.inserted();
-          }
-        }
+  void inserted() {
+    var elem = getShadowRoot('x-comp1').query("${css.selector('#input-1')}");
+    elem.value = "Testing";
+    if (isFlipper) _flip = true;
+    super.inserted();
+  }
+}
       </script>
     </element>
   </body>
