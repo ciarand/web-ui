@@ -728,7 +728,6 @@ class CssMapper {
   CssMapper(this._mapping);
 
   /** Returns mangled name of selector sans . or # character. */
-//  String operator [](String selector) => _mapping[selector];
   String operator [](String selector) => _mapping[selector];
 
   /** Returns mangled name of selector w/ . or # character. */

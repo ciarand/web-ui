@@ -98,10 +98,8 @@ String createCssSelectorsDefinition(ComponentInfo info, bool cssPolyfill) {
     cssVisited..visitTree(styleSheet);
   }
 
-  var css = json.stringify(createCssSimpleSelectors(cssVisited, info,
+  return json.stringify(createCssSimpleSelectors(cssVisited, info,
       scopedStyles: cssPolyfill));
-
-  return 'static Map<String, String> _cssMap = $css;';
 }
 
 // TODO(terry): Need to handle other selectors than IDs/classes like tag name
