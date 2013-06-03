@@ -422,7 +422,11 @@ class StyleSheetEmitter extends CssPrinter {
 
   StyleSheetEmitter(this._prefix);
 
-  bool _emitComponentScope(var node) {
+  /**
+   * If element selector is the component's tag name, then change selector to
+   * find element who's is attribute is the component's name.
+   */
+  bool _emitComponentElement(var node) {
     if (node is ElementSelector && _prefix == node.name) {
       emit('[is="$_prefix"]');
       return true;
@@ -447,7 +451,7 @@ class StyleSheetEmitter extends CssPrinter {
   }
 
   void visitElementSelector(ElementSelector node) {
-    if (_prefix != null && _emitComponentScope(node)) return;
+    if (_prefix != null && _emitComponentElement(node)) return;
     super.visitElementSelector(node);
   }
 }
