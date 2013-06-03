@@ -112,6 +112,7 @@ fi
 if [[ ($TEST_PATTERN == "") ]]; then
   pushd $DIR/.. > /dev/null
   echo -e "\nTesting build.dart... "
+  echo -e "$DART_FLAGS"
   dart $DART_FLAGS build.dart
   # Run it the way the editor does. Hide stdout because it is in noisy machine
   # format. Show stderr in case something breaks.
