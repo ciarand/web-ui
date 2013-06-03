@@ -82,6 +82,11 @@ Map createCssSimpleSelectors(IdClassVisitor visitedCss, ComponentInfo info,
       selectors['#$id'] = scopedStyles ? '${info.tagName}_$id' : id;
     }
   }
+
+  // Add tag name selector x-comp == [is="x-comp"].
+  var componentName = info.tagName;
+  selectors['$componentName'] = '[is="$componentName"]';
+
   return selectors;
 }
 
