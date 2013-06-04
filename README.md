@@ -17,7 +17,7 @@ We believe that:
 - Working in open source is the way to go.
 - Developers from all backgrounds should be building awesome modern web apps.
 
-[![](https://drone.io/dart-lang/web-ui/status.png)](https://drone.io/dart-lang/web-ui/latest)
+[![Build Status](https://drone.io/github.com/dart-lang/web-ui/status.png)](https://drone.io/github.com/dart-lang/web-ui/latest)
 
 Try It Now
 -----------

@@ -24,17 +24,13 @@ BSD-style license that can be found in the LICENSE file.
     main() {
       Timer.run(() {
         expect(query('#test').style.cssText, 'font-size: 16px;');
-        var oldStyles = styles;
-
-        styles = "Intentionally invalid style!";
-
+        styles = 33; // Intentionally invalid style!
         var error = null;
-        onObserveUnhandledError = (e, trace, callback, msg) {
-          error = e;
-        };
+        onObserveUnhandledError = (e, trace, callback, msg) { error = e; };
         try {
           deliverChangesSync();
-          expect(error, new isInstanceOf<DataBindingError>());
+          expect(error, new isInstanceOf<ArgumentError>());
+          expect(error.message, contains("String or Map<String, String>"));
         } finally {
           onObserveUnhandledError = defaultObserveUnhandledError;
         }
@@ -43,13 +39,19 @@ BSD-style license that can be found in the LICENSE file.
           // Our invalid style was ignored.
           expect(query('#test').style.cssText, '');
 
-          styles = const { 'font-size': '24px', 'font-family': 'monospace' };
+          styles = 'font-size: 18px; font-family: monospace;';
           deliverChangesSync();
           Timer.run(() {
-            // This is also verified through the render tree.
             expect(query('#test').style.cssText,
-                'font-size: 24px; font-family: monospace;');
-            window.postMessage('done', '*');
+              'font-size: 18px; font-family: monospace;');
+            styles = const { 'font-size': '24px', 'font-family': 'monospace' };
+            deliverChangesSync();
+            Timer.run(() {
+              // This is also verified through the render tree.
+              expect(query('#test').style.cssText,
+                  'font-size: 24px; font-family: monospace;');
+              window.postMessage('done', '*');
+            });
           });
         });
       });

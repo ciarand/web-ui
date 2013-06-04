@@ -10,7 +10,6 @@
 library dwc_browser;
 
 import 'dart:html';
-import 'dart:uri';
 import 'package:web_ui/src/compiler.dart';
 import 'package:web_ui/src/file_system.dart' as fs;
 import 'package:web_ui/src/file_system/browser.dart';

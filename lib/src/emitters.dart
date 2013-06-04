@@ -5,7 +5,6 @@
 /** Collects several code emitters for the template tool. */
 library emitters;
 
-import 'dart:uri';
 import 'package:csslib/parser.dart' as css;
 import 'package:csslib/visitor.dart';
 import 'package:html5lib/dom.dart';
@@ -662,11 +661,9 @@ class AttributeUrlTransform extends TreeVisitor {
 
     for (var key in node.attributes.keys) {
       if (urlAttributes.contains(key)) {
-        var attr = node.attributes[key];
-        if (attr != null) {
-          // Only rewrite if an URL attribute.
-          node.attributes[key] = pathMapper.transformUrl(filePath, attr);
-        }
+        // Rewrite the URL attribute.
+        node.attributes[key] = pathMapper.transformUrl(filePath,
+            node.attributes[key]);
       }
     }
 

@@ -289,6 +289,23 @@ main() {
         expect(pathMapper.transformUrl(file, 'packages/c.css'),
             '../../a/packages/packages/c.css');
       });
+
+      test('src fragments', () {
+        var pathMapper = _newPathMapper('a', 'out', false);
+        var file1 = 'a/b.dart';
+        var file2 = 'a/c/html.html';
+        // when the output == input directory, no paths should be rewritten
+        expect(pathMapper.transformUrl(file1, '#tips'), '#tips');
+        expect(pathMapper.transformUrl(file1,
+            'http://www.w3schools.com/html_links.htm#tips'),
+            'http://www.w3schools.com/html_links.htm#tips');
+        expect(pathMapper.transformUrl(file2,
+          'html_links.html'),
+          '../../a/c/html_links.html');
+        expect(pathMapper.transformUrl(file2,
+            'html_links.html#tips'),
+            '../../a/c/html_links.html#tips');
+      });
     });
   });
 }

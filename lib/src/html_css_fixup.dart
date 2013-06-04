@@ -5,7 +5,6 @@
 library html_css_fixup;
 
 import 'dart:json' as json;
-import 'dart:uri' show Uri;
 
 import 'package:csslib/parser.dart' as css;
 import 'package:csslib/visitor.dart';
@@ -409,7 +408,7 @@ class UriVisitor extends Visitor {
   void visitUriTerm(UriTerm node) {
     // Don't touch URIs that have any scheme (http, etc.).
     var uri = Uri.parse(node.text);
-    if (uri.domain != '') return;
+    if (uri.host != '') return;
     if (uri.scheme != '' && uri.scheme != 'package') return;
 
     node.text = pathToUrl(

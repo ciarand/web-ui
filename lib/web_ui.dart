@@ -132,9 +132,15 @@ abstract class WebComponent implements Element {
     host.model = newModel;
   }
 
-  void clearModel() => host.clearModel();
+  get templateInstance => host.templateInstance;
+  get isTemplate => host.isTemplate;
+  get ref => host.ref;
+  get content => host.content;
+  DocumentFragment createInstance() => host.createInstance();
+  void bind(String name, model, String path) => host.bind(name, model, path);
+  void unbind(String name) => host.unbind(name);
+  void unbindAll() => host.unbindAll();
 
-  Stream<Node> get onModelChanged => host.onModelChanged;
 
   /**
    * **Note**: This is an implementation helper and should not need to be called
@@ -496,9 +502,8 @@ abstract class WebComponent implements Element {
 
   bool matches(String selectors) => host.matches(selectors);
 
-  void requestFullScreen(int flags) {
-    host.requestFullScreen(flags);
-  }
+  @deprecated
+  void requestFullScreen(int flags) { requestFullscreen(); }
 
   void requestFullscreen() { host.requestFullscreen(); }
 
@@ -506,7 +511,7 @@ abstract class WebComponent implements Element {
 
   Element query(String selectors) => host.query(selectors);
 
-  List<Element> queryAll(String selectors) => host.queryAll(selectors);
+  ElementList queryAll(String selectors) => host.queryAll(selectors);
 
   HtmlCollection get $dom_children => host.$dom_children;
 
