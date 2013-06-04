@@ -482,11 +482,14 @@ class ComponentCssEmitter extends CssPrinter {
   }
 }
 
+/**
+ * Helper function to emit the contents of the style tag outside of a component.
+ */
 String emitStyleSheet(StyleSheet ss, FileInfo file) =>
   ((new CssEmitter(file.components.keys.toList()))
       ..visitTree(ss, pretty: true)).toString();
 
-/** Helper function to emit the contents of the style tag. */
+/** Helper function to emit a component's style tag content. */
 String emitComponentStyleSheet(StyleSheet ss, String prefix) =>
   ((new ComponentCssEmitter(prefix))..visitTree(ss, pretty: true)).toString();
 
