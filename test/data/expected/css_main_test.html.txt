@@ -1,34 +1,35 @@
 Content-Type: text/plain
 layer at (0,0) size 800x600
   RenderView at (0,0) size 800x600
-layer at (0,0) size 800x260
-  RenderBlock {HTML} at (0,0) size 800x260
-    RenderBody {BODY} at (8,8) size 784x244
+layer at (0,0) size 800x296
+  RenderBlock {HTML} at (0,0) size 800x296
+    RenderBody {BODY} at (8,8) size 784x280
       RenderBlock {DIV} at (0,0) size 322x102 [bgcolor=#FF0000] [border: (1px solid #000000)]
         RenderBlock (floating) {DIV} at (11,16) size 14x14
         RenderTextControl {INPUT} at (11,32) size 300x18 [color=#0000FF] [bgcolor=#ADFF2F]
         RenderText {#text} at (0,0) size 0x0
       RenderBlock (anonymous) at (0,102) size 784x22
         RenderTextControl {INPUT} at (0,2) size 300x18 [color=#9400D3] [bgcolor=#E0FFFF]
-        RenderText {#text} at (0,0) size 0x0
-        RenderInline {SPAN} at (0,0) size 0x0
+        RenderText {#text} at (300,2) size 10x18
+          text run at (300,2) width 10: " "
+        RenderInline {SPAN} at (0,0) size 5x28
           RenderText {#text} at (0,0) size 0x0
       RenderBlock (anonymous) at (0,124) size 784x60
         RenderBlock {DIV} at (0,0) size 340x60
           RenderTextControl {INPUT} at (20,20) size 300x20 [color=#FF0000] [bgcolor=#0000FF]
           RenderText {#text} at (0,0) size 0x0
-      RenderBlock (anonymous) at (0,184) size 784x0
-        RenderInline {SPAN} at (0,0) size 0x0
+      RenderBlock (anonymous) at (0,184) size 784x18
+        RenderInline {SPAN} at (0,0) size 5x28
           RenderText {#text} at (0,0) size 0x0
         RenderText {#text} at (0,0) size 0x0
-        RenderInline {SPAN} at (0,0) size 0x0
+        RenderInline {SPAN} at (0,0) size 5x28
           RenderText {#text} at (0,0) size 0x0
-      RenderBlock (anonymous) at (0,184) size 784x60
+      RenderBlock (anonymous) at (0,202) size 784x60
         RenderBlock {DIV} at (0,0) size 340x60
           RenderTextControl {INPUT} at (20,20) size 300x20 [color=#FFFF00] [bgcolor=#008000]
           RenderText {#text} at (0,0) size 0x0
-      RenderBlock (anonymous) at (0,244) size 784x0
-        RenderInline {SPAN} at (0,0) size 0x0
+      RenderBlock (anonymous) at (0,262) size 784x18
+        RenderInline {SPAN} at (0,0) size 5x28
           RenderText {#text} at (0,0) size 0x0
         RenderText {#text} at (0,0) size 0x0
         RenderText {#text} at (0,0) size 0x0
@@ -44,7 +45,7 @@ layer at (28,153) size 300x18
   RenderBlock {DIV} at (0,1) size 300x18
     RenderText {#text} at (0,0) size 70x18
       text run at (0,0) width 70: "Testing"
-layer at (28,213) size 300x18
+layer at (28,231) size 300x18
   RenderBlock {DIV} at (0,1) size 300x18
     RenderText {#text} at (0,0) size 70x18
       text run at (0,0) width 70: "Testing"

@@ -93,7 +93,7 @@ Map createCssSimpleSelectors(IdClassVisitor visitedCss, ComponentInfo info,
  * Return a map of simple CSS selectors (class and id selectors) as a Dart map
  * definition.
  */
-String createCssSelectorsDefinition(ComponentInfo info, bool cssPolyfill) {
+String createCssSelectorsExpression(ComponentInfo info, bool cssPolyfill) {
   var cssVisited = new IdClassVisitor();
 
   // For components only 1 stylesheet allowed.
